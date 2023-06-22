@@ -24,16 +24,19 @@ $jean = new Client("Jean", "Casset");
 
 //Réservations
 $reservation1 = new Reservation("2023-06-04", "2023-06-05", $chambre1, $carole);
-$reservation1 = new Reservation("2023-12-11", "2023-12-15", $chambre3, $jean);
+$reservation2 = new Reservation("2023-12-11", "2023-12-15", $chambre3, $jean);
 
-//Premier affichage
+
 echo($hilton);
 echo($hilton->displayInfo());
 
-//Deuxieme affichage
 echo($hilton->displayReservations());
 echo("<br />");
 echo($regent->displayReservations());
+
+//Réservation de Micka
+echo("<br />");
+echo($carole->displayInformations());
 
 ?>
 

@@ -91,9 +91,13 @@ class Hotel{
 
     public function displayReservations(): string {
         $result = "Réservations de l'hôtel ". $this;
-        $result .= "<p>". count($this->reservations) ." RÉSERVATIONS</p>";
-        foreach($this->reservations as $reservation){
-            $result .= "<p>".$reservation->getClient()." - Chambre ". $reservation->getChambre()->getNumero()." - du ". $reservation->getDateArrivee()." au ".$reservation->getDateDepart()."</p>";
+        if(count($this->reservations) == 0){
+            $result .= "<p>Aucune réservation</p>";
+        } else {
+            $result .= "<p>". count($this->reservations) ." RÉSERVATIONS</p>";
+            foreach($this->reservations as $reservation){
+                $result .= "<p>".$reservation->getClient()." - Chambre ". $reservation->getChambre()->getNumero()." - du ". $reservation->getDateArrivee()." au ".$reservation->getDateDepart()."</p>";
+            }
         }
         return $result;
     }

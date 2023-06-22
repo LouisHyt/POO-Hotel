@@ -33,6 +33,17 @@ class Client {
         $this->reservations[] = $reservation;
     }
 
+    public function displayInformations() {
+        ?>
+        Réservations de  <?= $this ?> <br />
+        <?php
+        foreach($this->reservations as $reservation){
+        ?>
+            
+        <?php
+        }
+    }
+
     public function __toString(): string{
         return $this->prenom. " ". $this->nom;
     }
