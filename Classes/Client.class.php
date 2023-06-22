@@ -7,9 +7,9 @@ class Client {
     private string $prenom;
     private array $reservations;
 
-    public function __construct($nom, $prenom){
-        $this->nom = $nom;
+    public function __construct($prenom, $nom){
         $this->prenom = $prenom;
+        $this->nom = $nom;
         $this->reservations = [];
     }
 

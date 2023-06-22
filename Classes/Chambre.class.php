@@ -9,12 +9,14 @@ class Chambre{
     private bool $disponible;
     private Hotel $hotel;
 
-    public function __construct(int $numero, int $lits, float $prix, bool $wifi, bool $disponible){
+    public function __construct(int $numero, int $lits, float $prix, bool $wifi, bool $disponible, Hotel $hotel){
         $this->numero = $numero;
         $this->lits = $lits;
         $this->prix = $prix;
         $this->wifi = $wifi;
         $this->disponible = $disponible;
+        $this->hotel = $hotel;
+        $this->hotel->setChambres($this);
     }
 
     public function getNumero():int{

@@ -11,7 +11,10 @@ class Reservation{
         $this->date_arrivee = new DateTime($date_arrivee);
         $this->date_depart = new DateTime($date_depart);
         $this->chambre = $chambre;
+        $this->chambre->setDisponible(false);
+        $this->chambre->getHotel()->addReservation($this);
         $this->client = $client;
+        $this->client->addReservation($this);
     }
 
 
