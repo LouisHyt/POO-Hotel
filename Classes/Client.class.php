@@ -33,6 +33,10 @@ class Client {
         $this->reservations[] = $reservation;
     }
 
+    public function __toString(): string{
+        return $this->prenom. " ". $this->nom;
+    }
+
 }
 
 
