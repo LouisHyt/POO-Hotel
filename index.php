@@ -25,10 +25,9 @@ $jean = new Client("Jean", "Casset");
 
 
 //Réservations
-$reservation1 = new Reservation("2023-06-04", "2023-06-05", $chambre1, $carole);
+$reservation1 = new Reservation("2023-06-04", "2023-06-08", $chambre1, $carole);
 $reservation2 = new Reservation("2023-12-11", "2023-12-15", $chambre2, $jean);
 $reservation2 = new Reservation("2022-10-10", "2022-10-11", $chambre3, $carole);
-
 
 echo($hilton);
 echo($hilton->displayInfo());
@@ -42,7 +41,7 @@ echo("<br />");
 echo($carole->displayInformations());
 echo("<br />");
 echo("<br />");
-echo($hilton->displayChambresStatus())
+echo($hilton->displayChambresStatus());
 
 ?>
 

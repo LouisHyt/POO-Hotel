@@ -17,9 +17,12 @@ class Reservation{
         $this->client->addReservation($this);
     }
 
+    public function getTimePassed(): int{
+         return $this->date_arrivee->diff($this->date_depart)->d;
+    }
 
     public function getDateArrivee(): string{
-        return $this->date_arrivee->format("d m Y");
+        return $this->date_arrivee->format("d/m/Y");
     }
 
     public function setDateArrivee(string $date_arrivee){
@@ -32,7 +35,7 @@ class Reservation{
 
     
     public function getDateDepart(): string{
-        return $this->date_arrivee->format("d m Y");
+        return $this->date_depart->format("d/m/Y");
     }
 
     public function setDateDepart(string $date_depart){

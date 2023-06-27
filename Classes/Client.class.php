@@ -42,7 +42,7 @@ class Client {
             $result .= "<p class='bold line'>Hotel : ".$reservation->getHotel()."</p>";
             $result .= "<span>&nbsp;• Chambre: ". $chambreInfo->getNumero()." (".$chambreInfo->getLits()." lits - ".$chambreInfo->getPrix()." - Wifi : ".$chambreInfo->getWifi().") ";
             $result .= "du ". $reservation->getDateArrivee()." au ".$reservation->getDateDepart()."</span>";
-            $totalPrice += $chambreInfo->getPrix(); 
+            $totalPrice += $chambreInfo->getPrix() * $reservation->getTimePassed(); 
         }
         $result .= "<br />Total: $totalPrice €";
 
