@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 <?php
 
@@ -15,7 +16,8 @@ $regent = new Hotel("Regent", "9 rue du bois", 75000, "Paris", 2);
 //Chambres
 $chambre1 = new Chambre(1, 2, 57, true, true, $hilton);
 $chambre2 = new Chambre(2, 4, 142, true, true, $hilton);
-$chambre3 = new Chambre(3, 1, 37, false, true, $regent);
+$chambre3 = new Chambre(1, 1, 37, false, true, $regent);
+$chambre4 = new Chambre(3, 1, 37, false, true, $hilton);
 
 //Clients
 $carole = new Client("Carole", "Dupoise");
@@ -38,6 +40,7 @@ echo($regent->displayReservations());
 //Réservation de Micka
 echo("<br />");
 echo($carole->displayInformations());
+echo("<br />");
 echo("<br />");
 echo($hilton->displayChambresStatus())
 
@@ -63,12 +66,24 @@ echo($hilton->displayChambresStatus())
         width: fit-content;
         border-radius: 3px; 
     }
+    .danger_info{
+        background-color: red;
+        color: white;
+        padding: 5px 10px;
+        width: fit-content;
+        border-radius: 3px; 
+    }
     .title{
         font-weight: bold;
-        font-size: 1em;
+        font-size: 1.2em;
+        margin-bottom: 10px;
 
     }
     .bold{
         font-weight: bold;
     }
+    p{
+        margin:  0;
+    }
+
 </style>
