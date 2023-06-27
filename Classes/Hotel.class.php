@@ -82,7 +82,7 @@ class Hotel{
             return $c->getDisponible() == false;
         }));
         $chambresDispo = $nbChambres - $chambresReservees;
-        $result = "<br />" . $this->adresse." ".$this->codepostal." ".$this->ville. "<br />";
+        $result = $this->adresse." ".$this->codepostal." ".$this->ville. "<br />";
         $result .= "Nombre de chambres: $nbChambres <br />";
         $result .= "Nombre de chambres réservées: $chambresReservees <br />";
         $result .= "Nombre de chambres dispo: $chambresDispo <br /><br />";
@@ -90,11 +90,11 @@ class Hotel{
     }
 
     public function displayReservations(): string {
-        $result = "Réservations de l'hôtel ". $this;
+        $result = "<p class='title'>Réservations de l'hôtel ". $this . "</p>";
         if(count($this->reservations) == 0){
-            $result .= "<p>Aucune réservation</p>";
+            $result .= "<p class='primary_info'>Aucune réservation</p>";
         } else {
-            $result .= "<p>". count($this->reservations) ." RÉSERVATIONS</p>";
+            $result .= "<p class='primary_info'>". count($this->reservations) ." RÉSERVATIONS</p>";
             foreach($this->reservations as $reservation){
                 $result .= "<p>".$reservation->getClient()." - Chambre ". $reservation->getChambre()->getNumero()." - du ". $reservation->getDateArrivee()." au ".$reservation->getDateDepart()."</p>";
             }
@@ -102,11 +102,17 @@ class Hotel{
         return $result;
     }
 
+    public function displayChambresStatus(): string{
+        $result = "<p>Status </p>"
+
+        return "";
+    }
+
     public function __toString(){
 
         $notes = DisplayNote::getNote($this->notation);
 
-        return "$this->nom ($this->ville) - $notes <br />";
+        return "<span class='title'> $this->nom ($this->ville) - $notes </span> <br />";
     }
 
 }

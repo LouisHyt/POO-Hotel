@@ -43,8 +43,11 @@ class Chambre{
         $this->prix = $prix;
     }
 
-    public function getWifi(): bool{
-        return $this->wifi;
+    public function getWifi(): string{
+        if($this->wifi == true){
+            return "oui";
+        }
+        return "non";
     }
 
     public function setWifi(bool $wifi){

@@ -34,14 +34,19 @@ class Client {
     }
 
     public function displayInformations() {
-        ?>
-        Réservations de  <?= $this ?> <br />
-        <?php
+        $result = "<p class='title'>Réservations de ". $this->prenom." ".$this->nom."</p>";
+        $result .= "<p class='primary_info'>". count($this->reservations) ." RÉSERVATIONS</p>";
+        $totalPrice = 0;
         foreach($this->reservations as $reservation){
-        ?>
-            
-        <?php
+            $chambreInfo = $reservation->getChambre();
+            $result .= "<p class='bold line'>Hotel : ".$reservation->getHotel()."</p>";
+            $result .= "<span>&nbsp;• Chambre: ". $chambreInfo->getNumero()." (".$chambreInfo->getLits()." lits - ".$chambreInfo->getPrix()." - Wifi : ".$chambreInfo->getWifi().") ";
+            $result .= "du ". $reservation->getDateArrivee()." au ".$reservation->getDateDepart()."</span>";
+            $totalPrice += $chambreInfo->getPrix(); 
         }
+        $result .= "<br />Total: $totalPrice €";
+
+        return $result;
     }
 
     public function __toString(): string{

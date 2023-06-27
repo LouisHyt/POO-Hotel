@@ -26,6 +26,10 @@ class Reservation{
         $this->date_arrivee = new DateTime($date_arrivee);
     }
 
+    public function getHotel(): Hotel{
+        return $this->getChambre()->getHotel();
+    }
+
     
     public function getDateDepart(): string{
         return $this->date_arrivee->format("d m Y");
