@@ -54,8 +54,11 @@ class Chambre{
         $this->wifi = $wifi;
     }
 
-    public function getDisponible(): bool{
-        return $this->disponible;
+    public function getDisponible(): string{
+        if($this->disponible == true){
+            return "<p class='primary_info'>Disponible<p>";
+        }
+        return "<p class='danger_info'>réservé<p>";
     }
 
     public function setDisponible(bool $disponible){

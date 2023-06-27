@@ -102,10 +102,34 @@ class Hotel{
         return $result;
     }
 
-    public function displayChambresStatus(): string{
-        $result = "<p>Status </p>"
-
-        return "";
+    public function displayChambresStatus(){
+        ?>
+        <p>Status des chambres de <?= $this ?></p>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Chambe</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Wifi</th>
+                <th scope="col">État</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($this->chambres as $chambre) {
+                ?>
+                    <tr>
+                        <td scope="row"><?= "Chambre : ".$chambre->getNumero() ?></td>
+                        <td><?= $chambre->getPrix()." €" ?></td>
+                        <td><?= $chambre->getWifi() ?></td>
+                        <td><?= $chambre->getDisponible() ?></td>
+                    </tr>
+                <?php
+                    }
+                ?>
+            </tbody>
+        </table>
+        <?php
     }
 
     public function __toString(){
